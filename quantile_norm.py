@@ -25,6 +25,10 @@ def get_row_means(sorted_arr, rows, cols):
 
     for j in range(cols):
         non_na = non_nas[j]
+        # if this column all is NA, skip. otherwise, row_means=nan, error
+        if non_na == 0:
+            continue
+        
         if non_na == rows:
             for i in range(rows):
                 row_means[i] += sorted_arr[i, j]
